@@ -18,7 +18,7 @@ namespace TDGP.Demo
 		/// <summary>
 		/// Time between spawns.
 		/// </summary>
-		public float SpawnTime = 0.8f;
+		public float SpawnTime = 2f;
 
 		/// <summary>
 		/// The maximum number of enemies on screen.

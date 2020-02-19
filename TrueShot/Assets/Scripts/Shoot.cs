@@ -16,6 +16,8 @@ public class Shoot : MonoBehaviour {
 
     private float time;
 
+    int isDead = 1;
+
     bool canShoot;
     double sc;
     float maxAmmo = 5;
@@ -29,7 +31,7 @@ public class Shoot : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        sc = ((Time.time - time) * 14) + setf();
+        sc = ((Time.time - time) * 14) + getAddedScore(isDead);
         // sc += setf();
         killCount.text = kills.ToString();
         score.text = ((int)sc).ToString();
@@ -83,14 +85,17 @@ public class Shoot : MonoBehaviour {
 
         yield return null;
     }
-    unsafe
-        
-    public int setf(int* hasDied)
+    public void setIsDead(int a)
     {
-        if (*hasDied == 0)
+        isDead = a;
+    }
+        
+    public int getAddedScore(int hasDied)
+    {
+        if (hasDied == 0)
         {
             return 30;
-            *hasDied = 1;
+            hasDied = 1;
         }
         else
             return 0;

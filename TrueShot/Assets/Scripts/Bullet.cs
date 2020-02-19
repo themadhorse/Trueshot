@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour {
             
             
             shoot.setKills(shoot.getKills()+1);
-            shoot.setf(&i);
+            shoot.setIsDead(0);
         }
         
     }

@@ -268,7 +268,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189911132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 22.22, z: 0}
+  m_LocalPosition: {x: -0.028, y: 0.496, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1214571400}
@@ -431,7 +431,7 @@ MonoBehaviour:
   bullet: {fileID: 1555790986138564, guid: 200363a1fc2aa034fa63772805461c65, type: 2}
   bulletPos: {fileID: 121426479}
   score: {fileID: 2039278049}
-  killCount: {fileID: 973907645}
+  killCount: {fileID: 1321962877}
   reloadTime: 1
 --- !u!1 &498659248 stripped
 GameObject:
@@ -1520,12 +1520,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 700
-  m_CrouchSpeed: 0.36
+  m_CrouchSpeed: 1
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 1024
   m_GroundCheck: {fileID: 278783622}
   m_CeilingCheck: {fileID: 189911133}
   m_CrouchDisableCollider: {fileID: 0}
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1214571401}
   horizontalMove: 0
-  runSpeed: 74
+  runSpeed: 57
 --- !u!114 &1214571403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,8 +1582,8 @@ MonoBehaviour:
   - {fileID: 499778672}
   - {fileID: 1788536463}
   spawnPoint: {fileID: 0}
-  SpawnTime: 5
-  MaxEnemiesOnScreen: 5
+  SpawnTime: 4
+  MaxEnemiesOnScreen: 10
   KillCount: {fileID: 0}
 --- !u!114 &1214571404
 MonoBehaviour:
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   - {fileID: 598509964}
   - {fileID: 988902186}
   spawnPoint: {fileID: 0}
-  SpawnTime: 3
+  SpawnTime: 0.8
   MaxEnemiesOnScreen: 10
   KillCount: {fileID: 0}
 --- !u!114 &1214571405
