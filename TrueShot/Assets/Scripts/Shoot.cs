@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour {
     int isDead = 1;
 
     bool canShoot;
-    double sc;
+    float sc;
     float maxAmmo = 5;
     float ammoUsed = 0;
     // Use this for initialization
@@ -31,10 +31,10 @@ public class Shoot : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        sc = ((Time.time - time) * 14) + getAddedScore(isDead);
+        sc = (Time.time - time);
         // sc += setf();
         killCount.text = kills.ToString();
-        score.text = ((int)sc).ToString();
+        score.text = (Mathf.Round(sc * 1000.0f) / 1000.0f).ToString();
 
 
         if (Input.GetButtonDown("Fire1"))

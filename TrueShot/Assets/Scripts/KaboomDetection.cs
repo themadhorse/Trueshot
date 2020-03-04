@@ -31,6 +31,7 @@ public class KaboomDetection : MonoBehaviour {
 
         this.gameObject.SetActive(false);
 
+        
         radR.gameObject.SetActive(true);
 
         yield return null;

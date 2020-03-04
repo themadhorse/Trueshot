@@ -14,6 +14,7 @@ namespace TDGP.Demo
 		public GameObject[] Enemy;
 
         public GameObject spawnPoint;
+        public GameObject ps;
 
 		/// <summary>
 		/// Time between spawns.
@@ -54,10 +55,24 @@ namespace TDGP.Demo
 			
 			currentEnemyCount++;
             //var position = new Vector2 (Random.Range (-8, 8), Random.Range (2, 4));
-            Enemy[enemyNo].transform.position = new Vector2(Random.Range(-8,8), Random.Range(2,4));
-            Enemy[enemyNo].SetActive(true);
+            ps.transform.position = new Vector2(Random.Range(-8,8), Random.Range(2,4));
+            Enemy[enemyNo].transform.position = ps.transform.position;
+            ps.GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SpawnDelay());
+            
+          //  Enemy[enemyNo].GetComponent<ParticleSystem>().enableEmission = true;
             //Instantiate (Enemy, position, Quaternion.identity);
-            enemyNo++;
+            
 		}
+
+        private IEnumerator SpawnDelay()
+        {
+            yield return new WaitForSeconds(1);
+            Enemy[enemyNo].SetActive(true);
+            enemyNo++;
+            ps.GetComponent<ParticleSystem>().Stop();
+        }
 	}
+
+    
 }

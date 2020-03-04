@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8aa75499810d574c9542d3627c4b570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blastTime: 2
+  blastTime: 1
   radiusW: {fileID: 1787367845331174}
   radiusR: {fileID: 1228993000314344}
 --- !u!114 &114841964389213136
