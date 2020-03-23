@@ -30,7 +30,8 @@ namespace TDGP.Demo
 		/// Reference to the kill text.
 		/// </summary>
 		public KillCount KillCount;
-	
+
+        public GameObject EnemyP;
 		private int currentEnemyCount = 0;
 
 		void Start ()
@@ -55,8 +56,11 @@ namespace TDGP.Demo
 			
 			currentEnemyCount++;
             //var position = new Vector2 (Random.Range (-8, 8), Random.Range (2, 4));
+            
             ps.transform.position = new Vector2(Random.Range(-8,8), Random.Range(2,4));
-            Enemy[enemyNo].transform.position = ps.transform.position;
+            Enemy[enemyNo] = Instantiate(EnemyP);
+            
+            
             ps.GetComponent<ParticleSystem>().Play();
             StartCoroutine(SpawnDelay());
             
@@ -68,6 +72,7 @@ namespace TDGP.Demo
         private IEnumerator SpawnDelay()
         {
             yield return new WaitForSeconds(1);
+            Enemy[enemyNo].transform.position = ps.transform.position;
             Enemy[enemyNo].SetActive(true);
             enemyNo++;
             ps.GetComponent<ParticleSystem>().Stop();

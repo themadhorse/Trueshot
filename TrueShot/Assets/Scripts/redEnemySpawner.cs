@@ -14,13 +14,14 @@ namespace TDGP.Demo
         public GameObject[] Enemy;
 
         public GameObject spawnPoint;
+        public GameObject EnemyR;
 
         public GameObject ps;
 
         /// <summary>
         /// Time between spawns.
         /// </summary>
-        public float SpawnTime = 0.8f;
+         float SpawnTime = 5f;
 
         /// <summary>
         /// The maximum number of enemies on screen.
@@ -31,13 +32,14 @@ namespace TDGP.Demo
         /// Reference to the kill text.
         /// </summary>
         public KillCount KillCount;
+        
 
         private int currentEnemyCount = 0;
 
         void Start()
         {
-            InvokeRepeating("SpawnEnemy", 0f, 6f);
-
+           InvokeRepeating("SpawnEnemy", 0f, SpawnTime);
+            
         }
 
         /// <summary>
@@ -56,24 +58,28 @@ namespace TDGP.Demo
 
             currentEnemyCount++;
             //var position = new Vector2 (Random.Range (-8, 8), Random.Range (2, 4));
+            
             int a;
             a = Random.Range(1, 3);
             if(a == 1)
                 ps.transform.position = new Vector2(-8.5f, Random.Range(-4, 4));
             else
                 ps.transform.position = new Vector2(8.5f, Random.Range(-4, 4));
-            Enemy[enemyNo].transform.position = ps.transform.position;
+            
+            
             ps.GetComponent<ParticleSystem>().Play();
             StartCoroutine(SpawnDelay());
            
-           //Instantiate (Enemy, position, Quaternion.identity);
-          
+            //Instantiate (Enemy, position, Quaternion.identity);
+            
+
         }
 
         private IEnumerator SpawnDelay()
         {
             yield return new WaitForSeconds(1);
-            Enemy[enemyNo].SetActive(true);
+            Enemy[enemyNo] = Instantiate(EnemyR);
+            Enemy[enemyNo].transform.position = ps.transform.position;
             enemyNo++;
             ps.GetComponent<ParticleSystem>().Stop();
         }

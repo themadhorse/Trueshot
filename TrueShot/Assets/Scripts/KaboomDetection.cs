@@ -6,7 +6,7 @@ public class KaboomDetection : MonoBehaviour {
 
     public GameObject radR;
 
-    public int ChangeTime;
+    public float ChangeTime;
 	// Use this for initialization
 	void Start () {
 		
