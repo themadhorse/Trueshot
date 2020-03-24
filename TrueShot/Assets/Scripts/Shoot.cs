@@ -102,5 +102,10 @@ public class Shoot : MonoBehaviour {
 
 
     }
+
+    public void setCanShoot(bool paused)
+    {
+        canShoot = paused;
+    }
 }
 
