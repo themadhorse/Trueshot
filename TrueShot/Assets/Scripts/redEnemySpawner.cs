@@ -21,7 +21,7 @@ namespace TDGP.Demo
         /// <summary>
         /// Time between spawns.
         /// </summary>
-         float SpawnTime = 5f;
+         float SpawnTime = 6f;
 
         /// <summary>
         /// The maximum number of enemies on screen.
@@ -38,8 +38,8 @@ namespace TDGP.Demo
 
         void Start()
         {
-           InvokeRepeating("SpawnEnemy", 0f, SpawnTime);
-            
+            //InvokeRepeating("SpawnEnemy", 0f, SpawnTime);
+            StartCoroutine(SpawnTimer(SpawnTime));
         }
 
         /// <summary>
@@ -82,6 +82,18 @@ namespace TDGP.Demo
             Enemy[enemyNo].transform.position = ps.transform.position;
             enemyNo++;
             ps.GetComponent<ParticleSystem>().Stop();
+        }
+
+        private IEnumerator SpawnTimer(float a)
+        {
+            yield return new WaitForSeconds(a);
+            SpawnEnemy();
+
+            if(a > 2.5f)
+            a -= 0.075f;
+
+            StartCoroutine(SpawnTimer(a));
+
         }
     }
 }
