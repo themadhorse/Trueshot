@@ -19,7 +19,7 @@ namespace TDGP.Demo
 		/// <summary>
 		/// Time between spawns.
 		/// </summary>
-		public float SpawnTime = 5;
+		float SpawnTime = 4;
 
 		/// <summary>
 		/// The maximum number of enemies on screen.
@@ -37,7 +37,7 @@ namespace TDGP.Demo
 		void Start ()
 		{
             //InvokeRepeating ("SpawnEnemy", 0f, SpawnTime);
-            StartCoroutine(SpawnTimer(SpawnTime));
+           // StartCoroutine(SpawnTimer(SpawnTime));
             
 		}
 
@@ -86,8 +86,8 @@ namespace TDGP.Demo
             yield return new WaitForSeconds(a);
             SpawnEnemy();
 
-            if(a > 1.5f)
-            a -= 0.13f;
+            if(a > 1.3f)
+            a -= 0.15f;
 
             StartCoroutine(SpawnTimer(a));
         }

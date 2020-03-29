@@ -44,13 +44,14 @@ public class Bullet : MonoBehaviour {
         }
         if(other.transform.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            Destroy(other.transform.root.gameObject);
             shoot.setAmmoUsed(shoot.getAmmoUsed() - 1f);
             
             
             shoot.setKills(shoot.getKills()+1);
             shoot.setIsDead(0);
         }
+        
         
     }
 
