@@ -15,7 +15,7 @@ public class TrackerSpawner : MonoBehaviour {
     int enemyNo = 0;
 
 	void Start () {
-      //  StartCoroutine(SpawnTimer(spawnTime));
+        StartCoroutine(SpawnTimer(spawnTime));
 	}
 	
 	private void SpawnEnemy()

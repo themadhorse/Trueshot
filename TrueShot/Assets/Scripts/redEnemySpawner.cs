@@ -39,7 +39,7 @@ namespace TDGP.Demo
         void Start()
         {
             //InvokeRepeating("SpawnEnemy", 0f, SpawnTime);
-           // StartCoroutine(SpawnTimer(SpawnTime));
+            StartCoroutine(SpawnTimer(SpawnTime));
             
         }
 
