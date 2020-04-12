@@ -45,5 +45,10 @@ public class TraceShot : MonoBehaviour {
 
         rotateSpeed = 10;
 
+        if (time > 3)
+            time -= 0.5f;
+
+        StartCoroutine(Shoot(time));
+
     }
 }

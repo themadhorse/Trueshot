@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Shoot : MonoBehaviour {
 
     public GameObject bullet;
-    public GameObject bulletPos;
+    public GameObject[] bulletPos;
 
     public Text score;
     public Text killCount;
@@ -22,6 +22,8 @@ public class Shoot : MonoBehaviour {
     float sc;
     float maxAmmo = 5;
     float ammoUsed = 0;
+
+    bool buckshot = false;
     // Use this for initialization
     void Start() {
         canShoot = true;
@@ -44,9 +46,26 @@ public class Shoot : MonoBehaviour {
 
             if (canShoot)
             {
-                // if (ammoUsed < maxAmmo)
+               /* if(buckshot)
                 {
-                    Instantiate(bullet, bulletPos.transform.position, Quaternion.identity);
+                    Vector3 rot = bulletPos[1].transform.rotation.eulerAngles;
+                    rot = new Vector3(rot.x, rot.y, rot.z + 10);
+                    
+
+                    Vector3 rot1 = bulletPos[1].transform.rotation.eulerAngles;
+                    rot1 = new Vector3(rot1.x, rot1.y, rot1.z - 10);
+                   
+
+                    Instantiate(bullet, bulletPos[0].transform.position, Quaternion.identity);
+                    Instantiate(bullet, bulletPos[1].transform.position, Quaternion.Euler(rot));
+                    Instantiate(bullet, bulletPos[2].transform.position, Quaternion.Euler(rot1));
+                }
+                else*/
+                {
+                    Instantiate(bullet, bulletPos[0].transform.position, Quaternion.identity);
+                 
+                    // Rigidbody2D rd = bullet.GetComponent<Rigidbody2D>();
+                    // rd.AddForce(gameObject.transform.forward * 1000 * Time.deltaTime);
                     ammoUsed++;
                 }
                 canShoot = false;
@@ -106,6 +125,16 @@ public class Shoot : MonoBehaviour {
     public void setCanShoot(bool paused)
     {
         canShoot = paused;
+    }
+
+    public void setBuckshot()
+    {
+        buckshot = true;
+    }
+
+    public bool getBuckShot()
+    {
+        return buckshot;
     }
 }
 

@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour {
         }
 	}
 
-    void Resume()
+   public void Resume()
     {
         PauseMenuUI.SetActive(false);   
         Time.timeScale = 1f;
@@ -48,4 +48,6 @@ public class PauseMenu : MonoBehaviour {
         GameIsPaused = true;
         player.GetComponent<Shoot>().setCanShoot(false);
     }
+
+    
 }

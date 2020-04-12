@@ -9,7 +9,11 @@ public class Bullet : MonoBehaviour {
 
     // Use this for initialization
      Vector3 target;
+    Vector3 target1;
+    Vector3 target2;
     public float speed = 12.0f;
+
+
     
     private Shoot shoot;
 
@@ -24,15 +28,20 @@ public class Bullet : MonoBehaviour {
     {
         
         shoot = GameObject.FindWithTag("Weapon").GetComponent<Shoot>();
-        target = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+       
+         target = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+      
+       
         target.z = 0;
+        
         target.Normalize();
     }
 
     void Update()
     {
-        
+
         transform.position = transform.position + (target * speed * Time.deltaTime);
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
